@@ -6,6 +6,29 @@ class Department:
 
     # Dictionary of objects saved to the database.
     all = {}
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        if not isinstance(value, str):
+            raise ValueError("Name must be a string")
+        if len(value.strip()) == 0:
+            raise ValueError("Name must be longer than 0 characters")
+        self._name = value
+
+    @property
+    def location(self):
+        return self._location
+
+    @location.setter
+    def location(self, value):
+        if not isinstance(value, str):
+            raise ValueError("Location must be a string")
+        if len(value.strip()) == 0:
+            raise ValueError("Location must be longer than 0 characters")
+        self._location = value
 
     def __init__(self, name, location, id=None):
         self.id = id
